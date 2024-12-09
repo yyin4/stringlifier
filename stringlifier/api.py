@@ -74,7 +74,7 @@ class Stringlifier:
         else:
             return new_strings
 
-    def _extract_tokens_2class(self, string: str, pred: NDArray[Int64]) -> Tuple[str, List[Tuple[str, int, int]]]:
+    def _extract_tokens_2class(self, string: str, pred: NDArray) -> Tuple[str, List[Tuple[str, int, int]]]:
         CUTOFF = 5
         mask = ''
         for p in pred:
@@ -115,7 +115,7 @@ class Stringlifier:
             new_str += string[last_pos:]
         return new_str, final_toks
 
-    def _extract_tokens(self, string: str, pred: NDArray[Int64], cutoff: int = 5) -> Tuple[
+    def _extract_tokens(self, string: str, pred: NDArray, cutoff: int = 5) -> Tuple[
         str, List[Tuple[str, int, int, str]]]:
         mask = ''
         numbers = {str(ii): 1 for ii in range(10)}
